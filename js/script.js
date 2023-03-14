@@ -1,6 +1,25 @@
 import { Octokit, App } from "https://cdn.skypack.dev/octokit";
 import { personalToken } from './keys.js'
 
+
+// Animatie Text
+const textAnimation = document.querySelector('section:nth-of-type(3) > div:nth-of-type(1)');
+const textAnimation2 = document.querySelector('section:nth-of-type(3) > div:nth-of-type(2)');
+const textAnimation3 = document.querySelector('section:nth-of-type(3) > div:nth-of-type(3)');
+setInterval(() => {
+  textAnimation.style.animation = 'none';
+  textAnimation.offsetHeight; /* Forces reflow */
+  textAnimation.style.animation = 'move-left 352s linear infinite';
+
+  textAnimation2.style.animation = 'none';
+  textAnimation2.offsetHeight; /* Forces reflow */
+  textAnimation2.style.animation = 'move-left 290s linear infinite';
+
+  textAnimation3.style.animation = 'none';
+  textAnimation3.offsetHeight; /* Forces reflow */
+  textAnimation3.style.animation = 'move-right 300s linear infinite';
+}, 20000);
+
 console.log('Banaan')
 
 const octokit = new Octokit({ auth: personalToken });
@@ -38,6 +57,12 @@ const {
   
       // Create a new <li> element for the repository
       const repoItem = document.createElement("li");
+
+       // Create a new <img> element for the repository
+      const imageEl = document.createElement("img");
+      // Set the <img>'s src attribute to a unique URL for this repository
+      imageEl.src = `https://example.com/images/${repository.name}.jpg`;
+      repoItem.appendChild(imageEl);
   
       // Set the <li>'s text content to the repository name
       const nameEl = document.createElement("h2");
@@ -53,7 +78,8 @@ const {
       const { data: commits } = await octokit.rest.repos.listCommits({
         owner,
         repo,
-        author: owner
+        author: owner,
+        per_page: 1000
       });
       console.log(`You have made ${commits.length} commits to the repository.`);
   
@@ -61,6 +87,8 @@ const {
       const commitsEl = document.createElement("p");
       commitsEl.textContent = `You have made ${commits.length} commits to this repository.`;
       repoItem.appendChild(commitsEl);
+
+       
   
       // Append the <li> to the repository list
       repoList.appendChild(repoItem);
