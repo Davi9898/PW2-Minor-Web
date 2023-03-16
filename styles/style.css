@@ -23,6 +23,9 @@ nav {
 main section:nth-of-type(1) {
     background-color: black;
     height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 main section:nth-of-type(2) {
@@ -65,26 +68,15 @@ footer {
     color: white;
 }
 
-ul {
-    display: flex;
-    justify-content: center;
-}
 
-li {
-    color: white;
-    width: 25%;
-    list-style-type: none;
-    margin: 2em;
-    z-index: 999;
-}
 
 /* animatie text */
 
 section:nth-of-type(4) {
     position: absolute;
-    bottom: -35em;
     color: white;
     font-size: 1.5em;
+    bottom: -89%;
 }
 
 section:nth-of-type(4) div {
@@ -93,6 +85,7 @@ section:nth-of-type(4) div {
     color: #232128;
     white-space: nowrap; /* Prevents text from wrapping */
     padding-top: 1em;
+    user-select: none;
 }
 
 section:nth-of-type(4) > div:nth-of-type(1) {
@@ -150,69 +143,65 @@ section:nth-of-type(4) > div:nth-of-type(3) {
 
 
 
-  /* https://codepen.io/prathkum/pen/dyMPErw */ 
 
   /* !!!!!!!!!!!!!!!!!!!! SPAN !!!!!!!!!!!!!!!!!!!
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,900&display=swap');
 
   
   span {
-    position: absolute;
-    left: 55%;
-    top: 40%;
-    transform: translate(-50%, -50%);
-    display: block;
-    color: white;
-    font-size: 180px;
+    font-size: 14vw;
     letter-spacing: 8px;
-    cursor: pointer;
-    width: 70%;
+    background-color: #f3ec78;
+    background-image: linear-gradient(45deg,#134a0b,white,#134a0b, white, #134a0b);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+  }
+
+  /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!List stylign !!!!!!!!!!!!!!!
+  !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+
+  section:nth-of-type(3) ul li img {
+    width: 100%;
+  }
+
+  ul {
+    display: flex;
+    justify-content: center;
+}
+
+li {
+    color: white;
+    width: 25%;
+    list-style-type: none;
+    margin: 2em;
+    z-index: 999;
+}
+  
+ /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+ .img-container {
+    position: relative;
   }
   
-  span::before {
-    content: "Daniël Vink";
+  .repo-info {
     position: absolute;
-    color: transparent;
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent 0,
-      transparent 2px,
-      #018a1e 2px,
-      #018a1e 4px
-    );
-    -webkit-background-clip: text;
-    top: 0px;
+    top: 0;
     left: 0;
-    z-index: -1;
-    transition: 1s;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    text-align: center;
   }
   
-  span::after {
-    content: "Daniël Vink";
-    position: absolute;
-    color: transparent;
-    background-image: repeating-linear-gradient(
-      135deg,
-      transparent 0,
-      transparent 2px,
-      #018a1e 2px,
-      #018a1e 4px
-    );
-    -webkit-background-clip: text;
-    top: 0px;
-    left: 0px;
-    transition: 1s;
+  .img-container:hover .repo-info {
+    display: block;
   }
-  
-  span:hover:before {
-    top: 10px;
-    left: 10px;
-  }
-  
-  span:hover:after {
-    top: -10px;
-    left: -10px;
-  } 
   

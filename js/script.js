@@ -3,9 +3,9 @@ import { personalToken } from './keys.js'
 
 
 // Animatie Text
-const textAnimation = document.querySelector('section:nth-of-type(3) > div:nth-of-type(1)');
-const textAnimation2 = document.querySelector('section:nth-of-type(3) > div:nth-of-type(2)');
-const textAnimation3 = document.querySelector('section:nth-of-type(3) > div:nth-of-type(3)');
+const textAnimation = document.querySelector('section:nth-of-type(4) > div:nth-of-type(1)');
+const textAnimation2 = document.querySelector('section:nth-of-type(4) > div:nth-of-type(2)');
+const textAnimation3 = document.querySelector('section:nth-of-type(4) > div:nth-of-type(3)');
 setInterval(() => {
   textAnimation.style.animation = 'none';
   textAnimation.offsetHeight; /* Forces reflow */
@@ -61,7 +61,7 @@ const {
        // Create a new <img> element for the repository
       const imageEl = document.createElement("img");
       // Set the <img>'s src attribute to a unique URL for this repository
-      imageEl.src = `https://example.com/images/${repository.name}.jpg`;
+      imageEl.src = `https://opengraph.githubassets.com/1/Davi9898/${repository.name}`;
       repoItem.appendChild(imageEl);
   
       // Set the <li>'s text content to the repository name
@@ -97,7 +97,3 @@ const {
       console.log(`Repository "${repo}" not found!`);
     }
   }
-
-
-
-
