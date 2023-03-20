@@ -1,5 +1,5 @@
 import { Octokit, App } from "https://cdn.skypack.dev/octokit";
-// import { personalToken } from './keys.js'
+import { personalToken } from './keys.js'
 
 
 // Animatie Text
@@ -22,7 +22,7 @@ setInterval(() => {
 
 console.log('Banaan')
 
-const octokit = new Octokit({ auth: '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' });
+const octokit = new Octokit({ auth: personalToken });
 
 const {
    data: repositories
