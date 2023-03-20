@@ -1,6 +1,8 @@
 import { Octokit, App } from "https://cdn.skypack.dev/octokit";
 import { personalToken } from './keys.js'
+import { router } from "./modules/router.js";
 
+router()
 
 // Animatie Text
 const textAnimation = document.querySelector('section:nth-of-type(4) > div:nth-of-type(1)');
@@ -109,30 +111,19 @@ const {
   // Modal
   const workButton = document.querySelector('nav p:nth-of-type(2)')
   const homeButton = document.querySelector('nav p:nth-of-type(1)')
-  const meerButton = document.querySelector('section:nth-of-type(3) a')
 
-  meerButton.addEventListener('click', () => {
-    showModal()
-  })
-
+  
   homeButton.addEventListener('click', () => {
-    hideModal()
+    window.location.hash = '#home'
   })
 
-  function hideModal() {
-    let modal = document.querySelector('.details')
-    modal.classList.add('hidden')
-  }
 
   workButton.addEventListener('click', () => {
-    showModal()
+    window.location.hash = '#werk'
     console.log('het werkt')
   })
 
-  function showModal() {
-    let modal = document.querySelector('.details')
-    modal.classList.remove('hidden')
-  }
+   
   
   // Get the <ul> element you want to add the repositories to
   const repoList2 = document.querySelector("section:nth-of-type(5) > ul");
